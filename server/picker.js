@@ -15,6 +15,6 @@ Picker.route( '/api/get/comments/:lastDateTime', function( params, req, res, nex
   // Now we have access to request.body!
   console.log( req.body );
 
-  res.end('Helloo');
+  res.end( JSON.stringify( {"hello": "Helloo",'b':'c'} ) );
   //res.json({"a": "b"});
 });
