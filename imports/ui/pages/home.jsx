@@ -9,7 +9,9 @@ export default class HomePage extends React.Component {
     return (
       <div className="container">
         <Header />
-
+        <div>
+          <button onClick="{}" >Get the app!</button>
+        </div>
 
       </div>
     );
