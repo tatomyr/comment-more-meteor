@@ -45,6 +45,9 @@ localstorage@1.0.11
 logging@1.0.13
 meteor@1.1.15
 meteor-base@1.0.4
+meteorhacks:async@1.0.0
+meteorhacks:npm@1.5.0
+meteorhacks:picker@1.0.3
 minifier-css@1.1.12
 minifier-js@1.1.12
 minimongo@1.0.17
@@ -55,6 +58,7 @@ modules-runtime@0.6.4
 mongo@1.1.9
 mongo-id@1.0.5
 npm-bcrypt@0.8.6_1
+npm-container@1.2.0
 npm-mongo@1.4.44
 observe-sequence@1.0.12
 ordered-dict@1.0.8

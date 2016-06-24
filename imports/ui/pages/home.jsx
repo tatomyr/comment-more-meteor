@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Header from '../components/Header.jsx';
+import AppGetter from '../components/AppGetter.jsx';
 
 // App component - represents the whole app
 export default class HomePage extends React.Component {
@@ -9,9 +10,8 @@ export default class HomePage extends React.Component {
     return (
       <div className="container">
         <Header />
-        <div>
-          <button onClick="{}" >Get the app!</button>
-        </div>
+
+        <AppGetter />
 
       </div>
     );

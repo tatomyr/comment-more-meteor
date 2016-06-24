@@ -22,3 +22,8 @@ insecure                # Allow all DB writes from clients (for prototyping)
 react-meteor-data
 accounts-ui
 accounts-password
+meteorhacks:picker
+meteorhacks:npm
+
+
+npm-container
