@@ -21,17 +21,17 @@ Meteor.methods({
     console.log(CMUser);
 
     let projectPath = process.cwd();
-    projectPath = projectPath.substr(0, projectPath.indexOf('/.meteor'));
+    projectPath = projectPath.substr(0, projectPath.indexOf('.meteor'));
 
-    let fileStamp = fs.readFileSync(`${projectPath}/public/comment-more.user.js`, 'utf8');
-    const CMVersion = fs.readFileSync(`${projectPath}/public/CMVersion.txt`, 'utf8').trim();
+    let fileStamp = fs.readFileSync(`${projectPath}public/comment-more.user.js`, 'utf8');
+    const CMVersion = fs.readFileSync(`${projectPath}public/CMVersion.txt`, 'utf8').trim();
 
     fileStamp = fileStamp.replace('var CMLogin=undefined;', `var CMLogin="${CMUser.email}";`)
       .replace('var CMPassword=undefined;', `var CMPassword="${CMUser.password}";`)
       .replace('var hostDomain="http://localhost:3000/";', `var hostDomain="${hostDomain}";`)
       .replace('var CMVersion="0.0";', `var CMVersion="${CMVersion}";`);
 
-    const headerStamp = fs.readFileSync(`${projectPath}/public/headerStamp.js`, 'utf8');
+    const headerStamp = fs.readFileSync(`${projectPath}public/headerStamp.js`, 'utf8');
     fileStamp = headerStamp.replace('{{CMVersion}}', CMVersion)
       .replace('{{hostDomain}}', hostDomain)
       + fileStamp;
