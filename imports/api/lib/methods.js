@@ -12,6 +12,7 @@ Meteor.methods({
     let CMUser = {};
     if (user) {
       CMUser = {
+        id: user._id,
         email: user.emails[0].address,
         name: user.emails[0].address.substring(0, user.emails[0].address.indexOf('@')),
         password: user.services.password.bcrypt,
@@ -26,14 +27,14 @@ Meteor.methods({
     let fileStamp = fs.readFileSync(`${projectPath}public/comment-more.user.js`, 'utf8');
     const CMVersion = fs.readFileSync(`${projectPath}public/CMVersion.txt`, 'utf8').trim();
 
-    fileStamp = fileStamp.replace('var CMLogin=undefined;', `var CMLogin="${CMUser.email}";`)
+    fileStamp = fileStamp.replace('var CMLogin=undefined;', `var CMLogin="${CMUser.id}";`)
       .replace('var CMPassword=undefined;', `var CMPassword="${CMUser.password}";`)
       .replace('var hostDomain="http://localhost:3000/";', `var hostDomain="${hostDomain}";`)
       .replace('var CMVersion="0.0";', `var CMVersion="${CMVersion}";`);
 
     const headerStamp = fs.readFileSync(`${projectPath}public/headerStamp.js`, 'utf8');
     fileStamp = headerStamp.replace('{{CMVersion}}', CMVersion)
-      .replace('{{hostDomain}}', hostDomain)
+      .replace(/{{hostDomain}}/g, hostDomain)
       + fileStamp;
 
 /*
@@ -50,10 +51,15 @@ Meteor.methods({
 // ==/UserScript==`
 */
 
+    const userLink = `userscripts/comment-more.${CMUser.id}.user.js`;
+    fs.writeFileSync(`${projectPath}public/${userLink}`, fileStamp, "utf8");
 
     console.log(fileStamp, CMVersion);
 
-
+    return {
+      userLink,
+      CMVersion
+    };
 
   },
 });

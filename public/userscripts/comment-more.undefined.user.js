@@ -1,7 +1,18 @@
-var CMVersion="0.0"; //@
+// ==UserScript==
+// @name CommentMore
+// @namespace comment-more
+// @description	comment on any web page
+// @include http*
+// @version 0.73.1
+// @require https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js
+// @require https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
+// @grant GM_getValue
+// @grant GM_setValue
+// ==/UserScript==
+var CMVersion="0.73.1"; //@
 var hostDomain="http://localhost:3000/"; //@
-var CMLogin=undefined; //@
-var CMPassword=undefined; //@
+var CMLogin="undefined"; //@
+var CMPassword="undefined"; //@
 
 
 var cookiesExp= 3600*24*365; //ms

@@ -1,3 +1,30 @@
+// ==UserScript==
+// @name        CommentMore
+// @namespace		comment-more
+// @description	parallel comment on any web page
+// @include     http*
+// @version 		0.0
+// @require     http://localhost:3000/jquery/jquery-1.12.0.min.js
+// @require     http://localhost:3000/jquery-ui-1.11.4.custom/jquery-ui.min.js
+// @grant       GM_getValue
+// @grant       GM_setValue
+// ==/UserScript==
+
+
+/*
+violates the security policy on:
+	http://content-security-policy.com/
+	https://www.facebook.com/
+	https://twitter.com/
+	https://github.com/
+	https://mail.ukr.net/
+дивна поведінка:
+	~https://auto.ria.com/uk/auto_volkswagen_polo_16549856.html#showImages
+	live.com
+	www.com
+	https://jsfiddle.net/
+*/
+
 var CMVersion="0.0"; //@
 var hostDomain="http://localhost:3000/"; //@
 var CMLogin=undefined; //@
